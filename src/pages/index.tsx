@@ -48,9 +48,9 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
   const [nextPage, setNextPage] = useState(postsPagination.next_page);
 
   const handleNextPage = async (): Promise<void> => {
-    const postsResults = await fetch(
-      `${nextPage}&access_token=MC5ZTEl4a2hBQUFDVUF2Njk5.77-9VO-_vTjvv701Oe-_vSzvv73vv73vv71COyPvv73vv73vv73vv73vv73vv73vv71177-977-977-977-9OV85Iu-_vQ`
-    ).then(response => response.json());
+    const postsResults = await fetch(`${nextPage}`).then(response =>
+      response.json()
+    );
     setNextPage(postsResults.next_page);
     setPosts([
       ...posts,
